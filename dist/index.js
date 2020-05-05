@@ -86,6 +86,18 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./ts/Job.ts":
+/*!*******************!*\
+  !*** ./ts/Job.ts ***!
+  \*******************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar Job = /** @class */ (function () {\r\n    function Job(jobType) {\r\n        var salarys = [];\r\n        for (var _i = 1; _i < arguments.length; _i++) {\r\n            salarys[_i - 1] = arguments[_i];\r\n        }\r\n        this.jobType = jobType;\r\n        if (salarys.length === 0) {\r\n            this.avgSalary = 0;\r\n        }\r\n        else {\r\n            var sum_1 = 0;\r\n            salarys.forEach(function (salary) {\r\n                sum_1 += salary;\r\n            });\r\n            this.avgSalary = sum_1 / salarys.length;\r\n        }\r\n    }\r\n    Job.prototype.getType = function () {\r\n        return this.jobType.toString();\r\n    };\r\n    return Job;\r\n}());\r\nexports.Job = Job;\r\n\n\n//# sourceURL=webpack:///./ts/Job.ts?");
+
+/***/ }),
+
 /***/ "./ts/User.ts":
 /*!********************!*\
   !*** ./ts/User.ts ***!
@@ -94,7 +106,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar User = /** @class */ (function () {\r\n    function User(familyName, givenName, age) {\r\n        this.familyName = familyName;\r\n        this.givenName = givenName;\r\n        this.age = age;\r\n    }\r\n    /**\r\n     * getFullName\r\n     */\r\n    User.prototype.getFullName = function () {\r\n        return this.familyName + this.givenName;\r\n    };\r\n    return User;\r\n}());\r\nexports.User = User;\r\n\n\n//# sourceURL=webpack:///./ts/User.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar User = /** @class */ (function () {\r\n    function User(familyName, givenName, age, job) {\r\n        this.familyName = familyName;\r\n        this.givenName = givenName;\r\n        this.age = age;\r\n        this.job = job;\r\n    }\r\n    /**\r\n     * getFullName\r\n     */\r\n    User.prototype.getFullName = function () {\r\n        return this.familyName + this.givenName;\r\n    };\r\n    User.prototype.getAge = function () {\r\n        return this.age;\r\n    };\r\n    return User;\r\n}());\r\nexports.User = User;\r\n\n\n//# sourceURL=webpack:///./ts/User.ts?");
 
 /***/ }),
 
@@ -106,7 +118,7 @@ eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nva
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar User_1 = __webpack_require__(/*! ./User */ \"./ts/User.ts\");\r\nvar user = new User_1.User(\"山田\", \"太郎\", 22);\r\nvar contentsElement = document.getElementById(\"contents\");\r\nif (!!contentsElement) {\r\n    contentsElement.innerText = \"私は\" + user.getFullName();\r\n}\r\n\n\n//# sourceURL=webpack:///./ts/index.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar User_1 = __webpack_require__(/*! ./User */ \"./ts/User.ts\");\r\nvar Job_1 = __webpack_require__(/*! ./Job */ \"./ts/Job.ts\");\r\nvar user = new User_1.User(\"山田\", \"太郎\", 22, (new Job_1.Job(\"学生\")));\r\nvar contentsElement = document.getElementById(\"contents\");\r\nif (!!contentsElement) {\r\n    contentsElement.innerText = \"私は\" + user.getFullName() + \"で年齢は\" + user.getAge() + \"歳、職業は\" + user.job.getType() + \"、月収は\" + user.job.avgSalary + \"です\";\r\n}\r\n\n\n//# sourceURL=webpack:///./ts/index.ts?");
 
 /***/ })
 
